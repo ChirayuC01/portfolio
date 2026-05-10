@@ -28,7 +28,7 @@ const Projects: React.FC = () => {
                   {project.title}
                 </h3>
                 <div className="flex items-center gap-2 shrink-0">
-                  {project.link && (
+                  {project.link && project.link !== '#' && (
                     <a
                       href={project.link}
                       target="_blank"
@@ -39,7 +39,7 @@ const Projects: React.FC = () => {
                       <ExternalLink size={16} />
                     </a>
                   )}
-                  {project.githubLink && (
+                  {project.githubLink && project.githubLink !== '#' && (
                     <a
                       href={project.githubLink}
                       target="_blank"

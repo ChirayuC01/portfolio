@@ -107,10 +107,15 @@ const promoterDashboard = createRoute({ method: 'GET', path: '/dashboard',
             LinkedIn
           </a>
           <div className="w-px h-4 bg-slate-800" />
-          <button className="flex items-center gap-2 text-sm font-mono hover:text-emerald-400 transition-colors">
+          <a
+            href="https://drive.google.com/file/d/10EhUj5ulpPXyG1JNMX_eE9sM5C_vpuy3/view?usp=sharing"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-2 text-sm font-mono hover:text-emerald-400 transition-colors"
+          >
             <Download size={18} />
             Resume
-          </button>
+          </a>
         </div>
       </div>
 

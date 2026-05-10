@@ -76,7 +76,8 @@ export const PROJECTS: Project[] = [
       "Server-Sent Events for real-time updates without WebSockets",
       "10-model PostgreSQL schema with full audit logging"
     ],
-    githubLink: "#"
+    link: "https://org-nest.vercel.app/",
+    githubLink: "https://github.com/ChirayuC01/OrgNest"
   },
   {
     title: "SavePass",
@@ -88,7 +89,8 @@ export const PROJECTS: Project[] = [
       "Secure CRUD for credentials with per-entry IV generation",
       "Zero-knowledge architecture — server stores only ciphertext"
     ],
-    githubLink: "#"
+    link: "https://save-pass-gold.vercel.app/",
+    githubLink: "https://github.com/ChirayuC01/save-pass"
   },
   {
     title: "CYNQ — Field Ops App",
@@ -100,6 +102,7 @@ export const PROJECTS: Project[] = [
       "Play Store deployment via EAS Build; iOS web version with 100% code reuse",
       "Force-update logic to ensure all field devices stay on latest build"
     ],
+    link: "https://play.google.com/store/apps/details?id=com.brandtouchindia.cynqorg&hl=en_IN",
     githubLink: "#"
   },
   {
@@ -112,6 +115,7 @@ export const PROJECTS: Project[] = [
       "Reusable table, chart, and filter components adopted across 9+ modules",
       "Dynamic visual analytics with ApexCharts (bar, line, donut, heatmap)"
     ],
+    link: "https://cynq.in/",
     githubLink: "#"
   }
 ];

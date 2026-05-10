@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Remove-Item \"C:\\\\Work\\\\Personal\\\\Chirayu Portfolio V2\\\\components\\\\BackgroundParticles.tsx\" -Force)",
+      "Bash(Remove-Item \"C:\\\\Work\\\\Personal\\\\Chirayu Portfolio V2\\\\components\\\\ThreeScene.tsx\" -Force)",
+      "Bash(Write-Output \"Deleted\")"
+    ]
+  }
+}

@@ -13,23 +13,30 @@ const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'experience', 'projects', 'contact'];
-      const scrollPosition = window.scrollY + 200;
+    let ticking = false;
 
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section);
-            break;
+    const handleScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const sections = ['home', 'about', 'skills', 'experience', 'projects', 'contact'];
+        const scrollPosition = window.scrollY + 200;
+
+        for (const section of sections) {
+          const element = document.getElementById(section);
+          if (element) {
+            const { offsetTop, offsetHeight } = element;
+            if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+              setActiveSection(section);
+              break;
+            }
           }
         }
-      }
+        ticking = false;
+      });
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -58,7 +65,7 @@ const App: React.FC = () => {
           <Hero />
         </section>
 
-        <section id="about" className="py-24 bg-slate-900/10 backdrop-blur-sm">
+        <section id="about" className="py-24 bg-slate-900/20">
           <div data-animate>
             <About />
           </div>
@@ -70,7 +77,7 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        <section id="experience" className="py-24 bg-slate-900/10 backdrop-blur-sm">
+        <section id="experience" className="py-24 bg-slate-900/20">
           <div data-animate>
             <Experience />
           </div>
@@ -82,7 +89,7 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        <section id="contact" className="py-24 bg-slate-900/10 backdrop-blur-sm">
+        <section id="contact" className="py-24 bg-slate-900/20">
           <div data-animate>
             <Contact />
           </div>

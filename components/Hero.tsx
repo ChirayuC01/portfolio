@@ -5,36 +5,9 @@ import { ArrowRight, Github, Linkedin, Download, Terminal } from 'lucide-react';
 const Hero: React.FC = () => {
   return (
     <div className="relative min-h-screen flex items-center justify-center pt-20 px-6 overflow-hidden">
-      {/* Decorative glows */}
-      <div className="absolute top-1/3 -left-32 w-80 h-80 bg-emerald-600/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-emerald-900/15 rounded-full blur-[160px] pointer-events-none" />
-
-      {/* Faint background code grid */}
-      <pre
-        aria-hidden="true"
-        className="absolute inset-0 overflow-hidden text-[10px] leading-5 text-emerald-500/[0.04] font-mono select-none pointer-events-none px-8 py-8 whitespace-pre-wrap break-all"
-      >
-        {`const buildFeature = async (spec: Spec): Promise<Result> => {
-  const schema = await db.schema.validate(spec);
-  const service = new FeatureService({ rbac: true, audit: true });
-  return service.deploy(schema);
-};
-
-interface AuthPayload { sub: string; role: Role; tenant: string; }
-const sign = (p: AuthPayload) => jwt.sign(p, SECRET, { expiresIn: '15m' });
-const refresh = (token: string) => verifyAndRotate(token, REFRESH_SECRET);
-
-export async function encryptVault(master: string, data: string) {
-  const key = await pbkdf2(master, SALT, 310000, 32, 'sha256');
-  const iv = crypto.getRandomValues(new Uint8Array(12));
-  return aesGcmEncrypt(key, iv, data);
-}
-
-const promoterDashboard = createRoute({ method: 'GET', path: '/dashboard',
-  middleware: [authenticate, rbac('promoter')],
-  handler: async (req) => batchQuery(req.tenant),
-});`.repeat(6)}
-      </pre>
+      {/* Decorative glows — translate3d promotes to own GPU layer */}
+      <div className="absolute top-1/3 -left-32 w-80 h-80 bg-emerald-600/10 rounded-full blur-[120px] pointer-events-none" style={{ transform: 'translate3d(0,0,0)' }} />
+      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-emerald-900/15 rounded-full blur-[120px] pointer-events-none" style={{ transform: 'translate3d(0,0,0)' }} />
 
       <div className="max-w-4xl w-full z-10">
         {/* Status badge */}

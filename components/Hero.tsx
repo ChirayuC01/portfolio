@@ -1,13 +1,18 @@
-
-import React from 'react';
-import { ArrowRight, Github, Linkedin, Download, Terminal } from 'lucide-react';
+import React from "react";
+import { ArrowRight, Github, Linkedin, Download, Terminal } from "lucide-react";
 
 const Hero: React.FC = () => {
   return (
     <div className="relative min-h-screen flex items-center justify-center pt-20 px-6 overflow-hidden">
       {/* Decorative glows — translate3d promotes to own GPU layer */}
-      <div className="absolute top-1/3 -left-32 w-80 h-80 bg-emerald-600/10 rounded-full blur-[120px] pointer-events-none" style={{ transform: 'translate3d(0,0,0)' }} />
-      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-emerald-900/15 rounded-full blur-[120px] pointer-events-none" style={{ transform: 'translate3d(0,0,0)' }} />
+      <div
+        className="absolute top-1/3 -left-32 w-80 h-80 bg-emerald-600/10 rounded-full blur-[120px] pointer-events-none"
+        style={{ transform: "translate3d(0,0,0)" }}
+      />
+      <div
+        className="absolute bottom-1/4 -right-32 w-96 h-96 bg-emerald-900/15 rounded-full blur-[120px] pointer-events-none"
+        style={{ transform: "translate3d(0,0,0)" }}
+      />
 
       <div className="max-w-4xl w-full z-10">
         {/* Status badge */}
@@ -22,7 +27,9 @@ const Hero: React.FC = () => {
         {/* Terminal prompt line */}
         <div className="flex items-center gap-2 mb-3">
           <Terminal size={14} className="text-emerald-500" />
-          <span className="font-mono text-emerald-400 text-sm tracking-wide">$ whoami</span>
+          <span className="font-mono text-emerald-400 text-sm tracking-wide">
+            $ whoami
+          </span>
         </div>
 
         {/* Name */}
@@ -33,12 +40,15 @@ const Hero: React.FC = () => {
 
         {/* Role line */}
         <p className="font-mono text-slate-400 text-base md:text-lg mb-3 tracking-wide">
-          <span className="text-slate-600">// </span>Full-Stack Developer &nbsp;&middot;&nbsp; Mumbai, India
+          <span className="text-slate-600">// </span>Full-Stack Developer
+          &nbsp;&middot;&nbsp; Mumbai, India
         </p>
 
         {/* One-liner */}
         <p className="text-slate-300 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed">
-          I ship production-grade web and mobile applications — from Play Store deployments to zero-knowledge auth systems and multi-tenant SaaS platforms.
+          I ship production-grade web and mobile applications — from Play Store
+          deployments to zero-knowledge auth systems and multi-tenant SaaS
+          platforms.
         </p>
 
         {/* CTAs */}
@@ -48,7 +58,10 @@ const Hero: React.FC = () => {
             className="flex items-center gap-2 px-7 py-3.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold rounded-lg transition-all active:scale-95 shadow-lg shadow-emerald-500/20 group"
           >
             View Work
-            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            <ArrowRight
+              size={18}
+              className="group-hover:translate-x-1 transition-transform"
+            />
           </a>
           <a
             href="#contact"
@@ -81,7 +94,7 @@ const Hero: React.FC = () => {
           </a>
           <div className="w-px h-4 bg-slate-800" />
           <a
-            href="https://drive.google.com/file/d/10EhUj5ulpPXyG1JNMX_eE9sM5C_vpuy3/view?usp=sharing"
+            href="https://drive.google.com/file/d/1p_UqiriXtBZTO6ZI8oTBCIFT2nnoTxPW/view?usp=sharing"
             target="_blank"
             rel="noreferrer"
             className="flex items-center gap-2 text-sm font-mono hover:text-emerald-400 transition-colors"
@@ -94,7 +107,9 @@ const Hero: React.FC = () => {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-600">
-        <span className="font-mono text-[10px] uppercase tracking-widest">scroll</span>
+        <span className="font-mono text-[10px] uppercase tracking-widest">
+          scroll
+        </span>
         <div className="w-px h-10 bg-gradient-to-b from-slate-600 to-transparent animate-pulse-slow" />
       </div>
     </div>

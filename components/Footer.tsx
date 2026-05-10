@@ -1,28 +1,38 @@
-
-import React from 'react';
-import { Terminal, Heart } from 'lucide-react';
+import React from "react";
+import { Github, Linkedin } from "lucide-react";
 
 const Footer: React.FC = () => {
   const year = new Date().getFullYear();
-  
+
   return (
-    <footer className="border-t border-slate-800 py-12 px-6 bg-slate-950">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-        <div className="flex items-center gap-2">
-          <div className="p-2 bg-slate-900 rounded-lg">
-            <Terminal size={18} className="text-accent-400" />
-          </div>
-          <span className="font-bold text-lg tracking-tight">
-            Chirayu <span className="text-accent-400">Chawande</span>
-          </span>
-        </div>
+    <footer className="border-t border-slate-800/60 py-10 px-6 bg-slate-950">
+      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+        <span className="font-mono text-slate-500 text-sm">
+          <span className="text-emerald-500">~</span> chirayu
+          <span className="text-emerald-400">.dev</span>
+        </span>
 
-        <div className="text-slate-500 text-sm flex items-center gap-1">
-          Designed & Built by Chirayu Chawande with <Heart size={14} className="text-red-500 fill-red-500" />
-        </div>
+        {/* <p className="font-mono text-xs text-slate-600">
+          &copy; {year} &middot; Built with React &amp; TypeScript
+        </p> */}
 
-        <div className="flex items-center gap-8 text-slate-500 text-sm font-medium">
-          <span>&copy; {year} All Rights Reserved</span>
+        <div className="flex items-center gap-4">
+          <a
+            href="https://github.com/ChirayuC01"
+            target="_blank"
+            rel="noreferrer"
+            className="text-slate-600 hover:text-emerald-400 transition-colors"
+          >
+            <Github size={16} />
+          </a>
+          <a
+            href="https://linkedin.com/in/chirayu-chawande-218347206"
+            target="_blank"
+            rel="noreferrer"
+            className="text-slate-600 hover:text-emerald-400 transition-colors"
+          >
+            <Linkedin size={16} />
+          </a>
         </div>
       </div>
     </footer>

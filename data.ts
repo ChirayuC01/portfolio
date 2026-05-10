@@ -3,24 +3,28 @@ import { Experience, Project, SkillGroup, Education } from './types';
 
 export const SKILLS: SkillGroup[] = [
   {
-    category: "Languages",
-    skills: ["JavaScript", "HTML", "CSS"]
-  },
-  {
     category: "Frontend",
-    skills: ["React.js", "Next.js", "React Native", "Tailwind CSS", "Redux", "ShadCN"]
+    skills: ["React.js", "Next.js", "React Native", "TypeScript", "Tailwind CSS", "Redux", "ShadCN"]
   },
   {
-    category: "Backend & DB",
-    skills: ["Node.js", "Express.js", "Prisma", "MongoDB"]
+    category: "Backend",
+    skills: ["Node.js", "Express.js", "REST APIs"]
   },
   {
-    category: "Cloud & Deployment",
-    skills: ["Vercel", "Expo", "EAS Hosting", "Google Play Console"]
+    category: "DB / ORM",
+    skills: ["PostgreSQL", "Prisma", "MongoDB"]
   },
   {
-    category: "Developer Tools",
-    skills: ["VS Code", "Git", "GitHub", "Hyper", "Cursor"]
+    category: "Auth",
+    skills: ["JWT", "RBAC", "AES-256-GCM", "PBKDF2", "OTP Auth"]
+  },
+  {
+    category: "Tooling",
+    skills: ["Git", "GitHub", "VS Code", "Cursor"]
+  },
+  {
+    category: "Deployment",
+    skills: ["Vercel", "Expo", "EAS Build", "Google Play Console"]
   }
 ];
 
@@ -28,67 +32,93 @@ export const EXPERIENCES: Experience[] = [
   {
     role: "Jr. Software Developer",
     company: "BrandTouch & Analytics Private Limited",
-    period: "02/2025 – Present",
+    period: "Feb 2025 – Present",
     location: "Mumbai, India",
     highlights: [
-      "Developed and deployed CYNQ mobile app using React Native & Expo with OTP-based login and real-time dashboards.",
-      "Implemented Role-Based Access Control (RBAC) across platforms, reducing permission issues by 90%.",
-      "Published to Play Store and deployed iOS web version via EAS Hosting with 100% code reuse.",
-      "Created reusable dynamic table and dashboard components, improving dev efficiency by 60%."
+      "Built and deployed the CYNQ field ops app (React Native + Expo + TypeScript) serving 100+ active promoters with OTP auth, live dashboards, and force-update logic.",
+      "Implemented two-layer Role-Based Access Control (RBAC) across mobile and admin platforms, reducing permission issues by 90%.",
+      "Published to Google Play Store via EAS Build and deployed iOS web version with 100% code reuse.",
+      "Architected a reusable component library — dynamic tables, chart wrappers, filters — adopted across 9+ admin modules, cutting new-page dev time by 60%.",
+      "Built a channel manager analytics dashboard with per-chart server-side filtering, ApexCharts, and batched Prisma queries."
     ],
     projects: [
       {
-        name: "CYNQ Mobile App",
-        description: "Enabling 1000+ promoters to securely log in, with real-time updates and force-update logic."
+        name: "CYNQ — Field Ops App",
+        description: "React Native + Expo app serving 100+ promoters with OTP login, real-time dashboards, and Play Store deployment."
       },
       {
-        name: "Admin Dashboard",
-        description: "Built with ShadCN and ApexCharts, providing dynamic visual analytics used across 9+ internal tools."
+        name: "CYNQ — Analytics Dashboard",
+        description: "ShadCN + ApexCharts admin dashboard with per-chart server-side filtering and batched Prisma queries across 9+ modules."
       }
     ]
   },
   {
     role: "Full Stack Intern",
     company: "WiStride",
-    period: "08/2024 – 01/2025",
+    period: "Aug 2024 – Jan 2025",
     location: "Mumbai, India",
     highlights: [
-      "Contributed to company website redesign using Tailwind CSS and Next.js, improving mobile responsiveness by 30%.",
-      "Reduced bounce rate by ~25% through UI optimizations.",
-      "Integrated APIs and built modular Ant Design components, reducing new page development time by 40%."
+      "Contributed to a full company website redesign with Next.js and Tailwind CSS, improving mobile responsiveness by 30%.",
+      "Reduced bounce rate by ~25% through targeted UI/UX optimizations.",
+      "Integrated third-party APIs and built modular Ant Design components, cutting new-page development time by 40%."
     ]
   }
 ];
 
 export const PROJECTS: Project[] = [
   {
-    title: "SavePass",
-    description: "A secure, full-stack password management solution with end-to-end focus on user data privacy and accessibility.",
-    tech: ["React", "Tailwind CSS", "Express.js", "MongoDB"],
+    title: "OrgNest",
+    description: "Multi-tenant SaaS platform with enterprise-grade access control. Organizations and their members operate in fully isolated data environments with real-time event streaming.",
+    tech: ["Next.js", "Node.js", "PostgreSQL", "Prisma", "TypeScript", "SSE"],
     features: [
-      "Secure credential storage",
-      "Responsive CRUD functionality",
-      "Optimized user flow for password records"
+      "Two-token JWT auth (access + refresh) with secure rotation",
+      "Two-layer RBAC — org-level roles and resource-level permissions",
+      "Server-Sent Events for real-time updates without WebSockets",
+      "10-model PostgreSQL schema with full audit logging"
     ],
-    link: "#"
+    githubLink: "#"
   },
   {
-    title: "DoIt",
-    description: "High-performance task management application designed for scale, handling hundreds of concurrent tasks with ease.",
-    tech: ["React", "Redux", "Tailwind CSS"],
+    title: "SavePass",
+    description: "Zero-knowledge password manager where no plaintext ever reaches the server. All encryption and decryption happens client-side using cryptographic primitives in the browser.",
+    tech: ["React", "TypeScript", "Express.js", "MongoDB", "Web Crypto API"],
     features: [
-      "Smart categorization (Today, Important, Planned)",
-      "Dark/light theme toggle",
-      "Dynamic grid and list views",
-      "State management for 200+ tasks"
+      "AES-256-GCM client-side encryption before any network call",
+      "PBKDF2 key derivation — master password never transmitted",
+      "Secure CRUD for credentials with per-entry IV generation",
+      "Zero-knowledge architecture — server stores only ciphertext"
     ],
-    link: "#"
+    githubLink: "#"
+  },
+  {
+    title: "CYNQ — Field Ops App",
+    description: "Production React Native app deployed to Google Play Store, built for 100+ field promoters to log in securely, view live dashboards, and receive force-update prompts when new versions ship.",
+    tech: ["React Native", "Expo", "TypeScript", "Node.js", "PostgreSQL", "EAS Build"],
+    features: [
+      "OTP-based authentication with session management",
+      "Live promoter dashboards with real-time data sync",
+      "Play Store deployment via EAS Build; iOS web version with 100% code reuse",
+      "Force-update logic to ensure all field devices stay on latest build"
+    ],
+    githubLink: "#"
+  },
+  {
+    title: "CYNQ — Analytics Dashboard",
+    description: "Channel manager analytics platform powering internal reporting across 9+ admin modules. Features per-chart server-side filtering, a reusable component library, and batched database queries for snappy load times.",
+    tech: ["Next.js", "ShadCN", "ApexCharts", "Prisma", "PostgreSQL", "TypeScript"],
+    features: [
+      "Per-chart server-side filtering — each chart fetches only its own slice of data",
+      "Batched Prisma queries with composite indexes for fast aggregations",
+      "Reusable table, chart, and filter components adopted across 9+ modules",
+      "Dynamic visual analytics with ApexCharts (bar, line, donut, heatmap)"
+    ],
+    githubLink: "#"
   }
 ];
 
 export const EDUCATION: Education[] = [
   {
-    degree: "Bachelor Of Engineering in IT",
+    degree: "Bachelor of Engineering in Information Technology",
     institution: "Atharva College of Engineering",
     score: "8.26 CGPI",
     period: "2020 – 2024"

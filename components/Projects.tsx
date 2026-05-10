@@ -2,79 +2,97 @@
 import React from 'react';
 import SectionHeader from './SectionHeader';
 import { PROJECTS } from '../data';
-import { ExternalLink, Github, Code2, Rocket } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
 
 const Projects: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-6">
-      <SectionHeader 
-        title="Featured Projects" 
-        subtitle="Selected work that demonstrates my technical depth." 
+      <SectionHeader
+        title="Featured Projects"
+        subtitle="Selected work that demonstrates technical depth."
       />
-      
-      <div className="grid md:grid-cols-2 gap-10">
-        {PROJECTS.map((project, idx) => (
-          <div key={idx} className="group bg-slate-900/40 border border-slate-800 rounded-3xl overflow-hidden hover:border-accent-500/30 transition-all flex flex-col">
-            <div className="relative h-64 overflow-hidden bg-slate-800 flex items-center justify-center">
-              <div className="absolute inset-0 bg-gradient-to-br from-accent-600/20 to-indigo-600/20 group-hover:opacity-100 transition-opacity" />
-              <Code2 size={80} className="text-slate-700 group-hover:scale-110 transition-transform duration-500" />
-              
-              <div className="absolute top-6 right-6 flex gap-2">
-                {project.link && (
-                  <a href={project.link} className="p-3 bg-white/10 backdrop-blur-md rounded-full text-white hover:bg-white/20 transition-all" title="Live Preview">
-                    <ExternalLink size={20} />
-                  </a>
-                )}
-                <a href="https://github.com/ChirayuC01" className="p-3 bg-white/10 backdrop-blur-md rounded-full text-white hover:bg-white/20 transition-all" title="View Source">
-                  <Github size={20} />
-                </a>
-              </div>
-            </div>
 
-            <div className="p-8 flex-1 flex flex-col">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-2xl font-bold group-hover:text-accent-400 transition-colors">{project.title}</h3>
-                <Rocket size={20} className="text-slate-700 group-hover:text-accent-500 transition-colors" />
+      <div className="grid md:grid-cols-2 gap-6">
+        {PROJECTS.map((project, idx) => (
+          <div
+            key={idx}
+            className="group flex flex-col bg-slate-900/40 border border-slate-800 rounded-2xl overflow-hidden hover:border-emerald-500/30 transition-all duration-300"
+          >
+            {/* Accent strip */}
+            <div className="h-[2px] bg-gradient-to-r from-emerald-500/60 via-emerald-400/30 to-transparent" />
+
+            <div className="p-7 flex flex-col flex-1">
+              {/* Header */}
+              <div className="flex items-start justify-between gap-4 mb-4">
+                <h3 className="text-xl font-bold text-white group-hover:text-emerald-300 transition-colors leading-tight">
+                  {project.title}
+                </h3>
+                <div className="flex items-center gap-2 shrink-0">
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="p-2 text-slate-500 hover:text-emerald-400 hover:bg-emerald-500/10 rounded-lg transition-all"
+                      title="Live demo"
+                    >
+                      <ExternalLink size={16} />
+                    </a>
+                  )}
+                  {project.githubLink && (
+                    <a
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="p-2 text-slate-500 hover:text-emerald-400 hover:bg-emerald-500/10 rounded-lg transition-all"
+                      title="Source code"
+                    >
+                      <Github size={16} />
+                    </a>
+                  )}
+                </div>
               </div>
-              
-              <p className="text-slate-400 mb-6 leading-relaxed flex-1">
+
+              {/* Stack tags */}
+              <div className="flex flex-wrap gap-1.5 mb-4">
+                {project.tech.map((t) => (
+                  <span
+                    key={t}
+                    className="px-2 py-0.5 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400/80 font-mono text-[10px] uppercase tracking-wider rounded"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+
+              {/* Description */}
+              <p className="text-slate-400 text-sm leading-relaxed mb-5 flex-1">
                 {project.description}
               </p>
 
-              <div className="space-y-4">
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((t) => (
-                    <span key={t} className="px-3 py-1 bg-slate-800 text-slate-300 text-[10px] font-black uppercase tracking-tighter rounded-md">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-                
-                <div className="pt-4 border-t border-slate-800/50">
-                  <h4 className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3">Key Features</h4>
-                  <ul className="grid grid-cols-1 gap-2">
-                    {project.features.map((f, i) => (
-                      <li key={i} className="text-sm text-slate-400 flex items-center gap-2">
-                        <div className="w-1 h-1 rounded-full bg-accent-500" />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+              {/* Features */}
+              <ul className="space-y-1.5 border-t border-slate-800/60 pt-4">
+                {project.features.map((f, i) => (
+                  <li key={i} className="flex items-start gap-2 text-xs text-slate-500">
+                    <span className="text-emerald-500 mt-0.5 shrink-0 font-mono">›</span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="mt-16 text-center">
-        <a 
-          href="https://github.com/ChirayuC01" 
+      <div className="mt-12 text-center">
+        <a
+          href="https://github.com/ChirayuC01"
           target="_blank"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 border border-slate-800 rounded-full text-slate-300 hover:text-white hover:border-slate-700 transition-all font-semibold"
+          rel="noreferrer"
+          className="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-900 border border-slate-800 rounded-lg text-slate-400 hover:text-emerald-400 hover:border-emerald-500/30 transition-all font-mono text-sm"
         >
-          <Github size={20} />
-          View More on GitHub
+          <Github size={16} />
+          github.com/ChirayuC01
         </a>
       </div>
     </div>

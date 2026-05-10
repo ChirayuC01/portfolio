@@ -22,6 +22,7 @@ export interface Project {
   tech: string[];
   features: string[];
   link?: string;
+  githubLink?: string;
 }
 
 export interface Education {
